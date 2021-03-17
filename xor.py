@@ -1,31 +1,32 @@
+
 def write_to_file(data, filename="./text.txt"):
-    with open(filename, 'wb') as f:
-        f.write(data)
-        f.close()
+    with open(filename, 'wb') as crip:
+        crip.write(data)
+        crip.close()
 
 
 def read_from_file(filename="./text.txt"):
-    with open(filename, 'rb') as f:
-        data = f.read()
-        f.close()
+    with open(filename, 'rb') as crip:
+        data = crip.read()
+        crip.close()
         return data
 
 def read_to_file_key(filename="./key.txt"):
-    with open(filename, 'r') as f:
-        data = f.read()
-        f.close()
+    with open(filename, 'r') as pass:
+        data = pass.read()
+        pass.close()
         return data
 
 def xor():
-    message = read_from_file()
+    text = read_from_file()
     key = str(read_to_file_key())
     result = bytearray()
-    if type(message) == str:
-        message = bytearray(message, "utf-8")
+    if type(text) == str:
+        text = bytearray(text, "utf-8")
     key = bytearray(key, "utf-8")  
 
-    for i in range(len(message)):
-        result.append(message[i] ^ key[i % len(key)])
+    for i in range(len(text)):
+        result.append(text[i] ^ key[i % len(key)])
     write_to_file(result)
     
 
