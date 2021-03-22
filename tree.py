@@ -1,13 +1,10 @@
 class Node:
-
     def __init__(self, data):
-
         self.left = None
         self.right = None
         self.data = data
-# Insert Node
-    def insert(self, data):
 
+    def insert(self, data):
         if self.data:
             if data < self.data:
                 if self.left is None:
@@ -22,7 +19,6 @@ class Node:
         else:
             self.data = data
 
-# Print the Tree
     def PrintTree(self):
         if self.left:
             self.left.PrintTree()
@@ -30,8 +26,6 @@ class Node:
         if self.right:
             self.right.PrintTree()
 
-# Inorder traversal
-# Left -> Root -> Right
     def inorderTraversal(self, root):
         res = []
         if root:
